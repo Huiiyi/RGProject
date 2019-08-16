@@ -7,3 +7,8 @@
 ## 创建项目
 1. 在CMD中输入`dotnet new mvc -au none -n RGProject`创建一个项目名为 `RGProject` `没有身份验证` 的 `.Net Core MVC Web` 程序，其他额外参数可以使用`-h`查看。
 2. 输入`cd RGProject`进入项目目录，输入`code .`使用VScode打开项目。
+## 安装依赖项
+1. 安装EntityFrameworkCore.Design
+`dotnet add package Microsoft.EntityFrameworkCore.Design`
+2. 安装EntityFrameworkCore.SQLite
+`dotnet add package Microsoft.EntityFrameworkCore.SQLite`
