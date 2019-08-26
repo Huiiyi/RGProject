@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RGProject.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace RGProject
 {
@@ -19,7 +21,7 @@ namespace RGProject
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration Configuration { get;}
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -33,6 +35,7 @@ namespace RGProject
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddDbContext<RGProjectDbContext>( options => options.UseSqlite(Configuration.GetConnectionString("SqliteDb")) );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
